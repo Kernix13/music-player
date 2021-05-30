@@ -13,10 +13,10 @@ const title = document.getElementById('title');
 
 // Song Titles
 const songs = [
-  'House of the Risin Sun',
+  'House of the Rising Sun',
   'Little Paradise',
   'Molasses',
-  'Moon', 
+  'Moon',
   'Summer',
   'Ukulele',
   'Hey',
@@ -29,9 +29,9 @@ let songIndex = 0;
 loadSong(songs[songIndex]);
 
 function loadSong(song) {
-    title.innerText = song;
-    audio.src = `music/${song}.mp3`;
-    // cover.src = `images/${song}.jpg`;
+  title.innerText = song;
+  audio.src = `music/${song}.mp3`;
+  // cover.src = `images/${song}.jpg`;
 }
 
 // Play song
