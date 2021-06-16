@@ -13,7 +13,7 @@ const title = document.getElementById('title');
 
 // Song Titles
 const songs = [
-  'House of the Rising Sun',
+  'House of the Risin Sun',
   'Little Paradise',
   'Molasses',
   'Moon',

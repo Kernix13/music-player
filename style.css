@@ -62,7 +62,7 @@ h1 {
   position: relative;
   width: 110px;
 }
-
+ 
 .img-container::after {
   content: '';
   background-color: #fff;
