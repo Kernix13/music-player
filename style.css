@@ -113,6 +113,7 @@ h1 {
   background-color: rgba(0, 0, 0, 0.5);
   padding: 0.125em 0;
   border-radius: 0.5em;
+  width: 100%;
 }
 
 .action-btn {
@@ -124,6 +125,7 @@ h1 {
   color: #fff;
   /* color: goldenrod; */
   font-size: 0.875rem;
+  width: 2em;
   cursor: pointer;
   /* margin: 0.5em; */
   margin: 0 0.5em;
@@ -180,10 +182,10 @@ h1 {
   /* margin: 0 auto; */
   padding: 0.25em 0.5em 0.25em;
   text-align: center;
-  opacity: 0;
+  /* opacity: 0;
   transform: translateY(0%);
   transition: transform 0.3s ease-in, opacity 0.3s ease-in;
-  z-index: 0;
+  z-index: 0; */
 }
 
 /* .music-info .vol-controls {
@@ -191,7 +193,8 @@ h1 {
   padding: 0.25em 0 0.25em;
 } */
 
-.music-container.play .music-info {
+/* .music-container.play .music-info { */
+.music-container .music-info {
   opacity: 1;
   transform: translateY(-150%);
   background-color: rgb(73, 144, 104);
@@ -221,7 +224,7 @@ h1 {
   background-color: #fe8daa;
   border-radius: 0.25em;
   height: 100%;
-  width: 10%;
+  width: 0%;
   transition: width 0.1s linear;
 }
 
@@ -281,4 +284,6 @@ input[type='range']::-moz-range-thumb {
   color: #fff;
   font-size: 0.9rem;
   padding-right: 0.25em;
+  /* had to add that to stop the width shifting from NaN */
+  /* width: 6em; */
 }
