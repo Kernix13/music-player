@@ -2,12 +2,9 @@ const musicContainer = document.getElementById('music-container');
 const audioPlayer = musicContainer.querySelector('.audio_player');
 
 const title = document.getElementById('title');
-// 
+
 const progressRange = document.querySelector('.progress-range');
 const progressBar = document.querySelector('.progress-bar');
-// 
-// const progressContainer = document.getElementById('progress-container');
-// const progress = document.getElementById('progress');
 
 const currentTime = document.querySelector('.time-elapsed');
 const duration = document.querySelector('.time-duration');
@@ -26,7 +23,7 @@ const volInput = musicContainer.querySelector('input[name="volume"]')
 
 // const cover = document.getElementById('cover');
 
-// Song Titles
+// Song Titles - need to get rid of this hard coded list of titles. Need to be able to upload multiple files from desktop or load a list from an API
 const songs = [
   'House of the Risin Sun',
   'Little Paradise',
@@ -94,20 +91,6 @@ function nextSong() {
   playSong();
 }
 
-// update progress bar
-// function updateProgress(e) {
-//   const { duration, currentTime } = e.srcElement;
-//   const progressPercent = (currentTime / duration) * 100;
-//   progress.style.width = `${progressPercent}%`;
-//   console.log('Working');
-// }
-
-/* updateProgress - the above one stops progress, the one below works but get NaN */
-
-
-// VIDEO - - - - - - -Calculate display time format
-// IT'S THIS FUNCTION, THE SECONDS
-
 function displayTime(time) {
   const minutes = Math.floor(time / 60);
   let seconds = Math.floor(time % 60);
@@ -116,14 +99,13 @@ function displayTime(time) {
   // return minutes + ':' + seconds;
 }
 
-// VIDEO - - - - - - - update progress bar as the video plays
-// OR THIS FUNCTION, DURATION IS A PROPERTY OF THE VIDEO ELEMENT, WHAT ABOUT THE AUDIO ELEMENT? ad to comment out time-duration in index.html
-
 function updateProgress() {
+  let duration = 0;
   progressBar.style.width = `${(audioPlayer.currentTime / audioPlayer.duration) * 100}%`;
-  // currentTime.textContent = `${displayTime(audioPlayer.currentTime)} /`;
-  currentTime.textContent = `${displayTime(audioPlayer.currentTime)}`;
-  duration.textContent = `${displayTime(audioPlayer.duration)}`;
+  currentTime.textContent = `${displayTime(audioPlayer.currentTime)} /`;
+  // currentTime.textContent = `${displayTime(audioPlayer.currentTime)}`;
+  duration.textContent = `${displayTime(audioPlayer.duration)} `;
+
 }
 // VIDEO - - - - -
 function scrub(event) {
@@ -131,7 +113,6 @@ function scrub(event) {
   audioPlayer.currentTime = scrubTime;
 }
 
-// from https://css-tricks.com/lets-create-a-custom-audio-player/ but only got rid of the initial load - search: html5 audio element duration nan
 const displayDuration = () => {
   duration.textContent = displayTime(audio.duration);
 }
@@ -144,18 +125,10 @@ if (audio.readyState > 0) {
   });
 }
 
-// set progress bar
-// function setProgress(e) {
-//   const width = this.clientWidth;
-//   const clickX = e.offsetX;
-//   const duration = audio.duration;
-
-//   audio.currentTime = (clickX / width) * duration;
-// }
 // VIDEO - - - - - Click to seek within the video
 function setProgress(e) {
   const newTime = e.offsetX / progressRange.offsetWidth;
-  progressBar.style.width = `${newTime * 100}%`;
+  progressBar.style.width = `${newTime * 100}% `;
   audioPlayer.currentTime = newTime * audioPlayer.duration;
 }
 
@@ -170,6 +143,7 @@ function handleRangeUpdate() {
 
 let muted = false;
 
+// need to have the muste button return to previous setting, not back to full
 function mute() {
   if (!muted) {
     audioPlayer['volume'] = 0;
@@ -204,7 +178,7 @@ nextBtn.addEventListener('click', nextSong);
 // time and song update
 audio.addEventListener('timeupdate', updateProgress);
 
-// click on progrss bar
+// click on progress bar
 // progressContainer.addEventListener('click', setProgress);
 // VIDEO
 progressRange.addEventListener('click', setProgress);

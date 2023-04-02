@@ -36,12 +36,14 @@
 
         <button class="action-btn speaker">
           <i id="speaker_icon" class="fa fa-volume-up" aria-hidden="true"></i>
+          <!-- <i id="speaker_icon" class="fa fa-volume-mute" aria-hidden="true"></i> -->
         </button>
-        <input type="range" name="volume" class="player_slider" min="0" max="1" step="0.05" value="1"></input>
+        <input id="volume-bar" type="range" name="volume" class="player_slider" min="0" max="1" step="0.05"
+          value="0.5"></input>
 
         <div class="time">
           <span class="time-elapsed">00:00</span>
-          <!-- <span class="time-duration"> / 5:16</span> -->
+          <span class="time-duration"> / 5:16</span>
         </div>
 
       </div>
